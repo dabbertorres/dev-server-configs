@@ -1,0 +1,19 @@
+version: "3.7"
+
+services:
+  landing-page:
+    image: docker.dabbertorres.dev/landing-page:latest
+    restart: always
+    environment:
+    - VIRTUAL_HOST=dabbertorres.dev
+    - VIRTUAL_PORT=80
+    - LETSENCRYPT_HOST=dabbertorres.dev
+    - LETSENCRYPT_EMAIL=adiverso93@gmail.com
+    networks:
+    - internal
+    expose:
+    - "80"
+networks:
+  internal:
+    external: true
+    name: internal
